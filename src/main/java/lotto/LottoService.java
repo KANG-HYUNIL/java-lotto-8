@@ -45,9 +45,11 @@ public class LottoService {
 
         int totalSpent = lottoRepository.getTotalMoney();
         return new RankResults(counts, totalPrize, totalSpent);
+    }
 
+    public List<Lotto> getPurchasedLottos() {
 
-
+        return lottoRepository.getLottos();
     }
 
 }

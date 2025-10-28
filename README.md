@@ -10,7 +10,7 @@
     - InputHandler가 반환한 문자열을 도메인 타입(금액 int 등)으로 변환
     - 변환 전 Validator 호출, 실패 시 IllegalArgumentException 발생
 
-3. [ ] 양식에 맞게 출력해주는 모듈(OutputHandler)
+3. [x] 양식에 맞게 출력해주는 모듈(OutputHandler)
     - 구매 개수, 로또별 번호, 당첨 통계, 수익률 등 화면 출력 전담
 
 4. [x] 로또 생성기 인터페이스(LottoGenerator) 및 구현(RandomLottoGenerator)
@@ -34,10 +34,6 @@
 
 9. [x] 등수 정의(Enum: Rank)
    - 1~5등 기준과 상금(금액)을 정의
-
-10. [ ] 결과 계산기(LottoStatistics / ResultCalculator)
-    - 모든 티켓을 비교하여 각 Rank별 당첨 수 집계
-    - 총 당첨금 계산 및 수익률(ROI) 산출
 
 11. [x] Lotto 생성할 Factory
     - Lotto Class를 생성하는 것을 담당

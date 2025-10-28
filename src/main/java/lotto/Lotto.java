@@ -36,4 +36,13 @@ public class Lotto {
 
         return Rank.from(matchCount, bonusMatch);
     }
+
+    public String toString() {
+        return numbers.toString();
+    }
+
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
+    }
+
 }
