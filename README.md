@@ -31,7 +31,7 @@
    - 당첨 6개 숫자 + 보너스 번호 보유
    - 티켓과의 비교용 유틸리티 제공
 
-9. [ ] 등수 정의(Enum: Rank)
+9. [x] 등수 정의(Enum: Rank)
    - 1~5등 기준과 상금(금액)을 정의
 
 10. [ ] 결과 계산기(LottoStatistics / ResultCalculator)
