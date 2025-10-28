@@ -33,10 +33,12 @@
 
 9. [ ] 등수 정의(Enum: Rank)
    - 1~5등 기준과 상금(금액)을 정의
-   - 매칭 수와 보너스 포함 여부로 Rank 결정하는 팩토리 메서드 포함
 
 10. [ ] 결과 계산기(LottoStatistics / ResultCalculator)
     - 모든 티켓을 비교하여 각 Rank별 당첨 수 집계
     - 총 당첨금 계산 및 수익률(ROI) 산출
 
+11. [x] Lotto 생성할 Factory
+    - Lotto Class를 생성하는 것을 담당
 
+12. [ ] 전체 LottoGameController
