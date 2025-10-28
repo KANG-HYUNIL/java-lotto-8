@@ -17,14 +17,15 @@
     - 중복 없는 6개 숫자 생성하여 LottoTicket 반환
     - 테스트용 고정 시드 구현 가능하게 설계
 
-5. [ ] 구매 관리(PurchaseManager)
+5. [x] 구매 관리(PurchaseService)
     -  발행 가능한 장수 계산
+    - 
 
 6. [x] 공통 검증 유틸(Validator)
     - 입력 포맷, 숫자 범위, 중복 여부 등 공통 검증 로직 제공
     - 도메인 객체 내부에서도 재사용
 
-7. [ ] 구매 저장소(LottoRepository)
+7. [x] 구매 저장소(LottoRepository)
    - 발행된/구매한 LottoTicket 목록 보관 및 조회 제공
 
 8. [ ] 당첨 번호(WinningNumbers)
