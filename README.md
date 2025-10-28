@@ -6,24 +6,23 @@
 1. [x] 입력을 받는 모듈(InputHandler)
     - 로또 구입 금액, 당첨 번호(6개), 보너스 번호 입력을 담당
 
-2. [ ] 파싱/변환 모듈(InputParser / InputConverter)
+2. [x] 파싱/변환 모듈(InputParser / InputConverter)
     - InputHandler가 반환한 문자열을 도메인 타입(금액 int 등)으로 변환
     - 변환 전 Validator 호출, 실패 시 IllegalArgumentException 발생
 
 3. [ ] 양식에 맞게 출력해주는 모듈(OutputHandler)
     - 구매 개수, 로또별 번호, 당첨 통계, 수익률 등 화면 출력 전담
-    - "[ERROR]" 접두어를 붙여 에러 메시지 출력(에러 포맷팅 포함)
 
 
-3. [ ] 로또 생성기 인터페이스(LottoGenerator) 및 구현(RandomLottoGenerator)
+4. [ ] 로또 생성기 인터페이스(LottoGenerator) 및 구현(RandomLottoGenerator)
     - 중복 없는 6개 숫자 생성하여 LottoTicket 반환
     - 테스트용 고정 시드 구현 가능하게 설계
 
-4. [ ] 구매 관리(PurchaseManager)
+5. [ ] 구매 관리(PurchaseManager)
     - 구입 금액 검증(1000원 단위), 발행 가능한 장수 계산
     - 잔액/입력 오류 처리 책임
 
-5. [ ] 공통 검증 유틸(Validator)
+6. [x] 공통 검증 유틸(Validator)
     - 입력 포맷, 숫자 범위, 중복 여부 등 공통 검증 로직 제공
     - 도메인 객체 내부에서도 재사용
 
