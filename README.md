@@ -3,11 +3,14 @@
 ## 구현할 기능 단위 모듈 선언
 
 
-1. [ ] 입력을 받는 모듈(InputHandler)
+1. [x] 입력을 받는 모듈(InputHandler)
     - 로또 구입 금액, 당첨 번호(6개), 보너스 번호 입력을 담당
-    - 기본 파싱/형식 검사 수행, 실패 시 IllegalArgumentException 발생
 
-2. [ ] 양식에 맞게 출력해주는 모듈(OutputHandler)
+2. [ ] 파싱/변환 모듈(InputParser / InputConverter)
+    - InputHandler가 반환한 문자열을 도메인 타입(금액 int 등)으로 변환
+    - 변환 전 Validator 호출, 실패 시 IllegalArgumentException 발생
+
+3. [ ] 양식에 맞게 출력해주는 모듈(OutputHandler)
     - 구매 개수, 로또별 번호, 당첨 통계, 수익률 등 화면 출력 전담
     - "[ERROR]" 접두어를 붙여 에러 메시지 출력(에러 포맷팅 포함)
 
