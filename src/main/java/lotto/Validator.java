@@ -14,9 +14,17 @@ public class Validator {
         }
     }
 
-    public static void validateLottoNumberRange(int number) {
-        if (number < 1 || number > 45) {
+    public static void validateBonusNumberRange(int bonusNumber) {
+        if (bonusNumber < 1 || bonusNumber > 45) {
             throw new IllegalArgumentException(NUMBER_OUT_OF_RANGE.errorWithMessage());
+        }
+    }
+
+    public static void validateLottoNumberRange(List<Integer> numbers) {
+        for (int number : numbers) {
+            if (number < 1 || number > 45) {
+                throw new IllegalArgumentException(NUMBER_OUT_OF_RANGE.errorWithMessage());
+            }
         }
     }
 
