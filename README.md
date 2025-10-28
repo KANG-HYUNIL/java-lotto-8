@@ -28,9 +28,9 @@
 7. [x] 구매 저장소(LottoRepository)
    - 발행된/구매한 LottoTicket 목록 보관 및 조회 제공
 
-8. [ ] 당첨 번호(WinningNumbers)
+8. [x] 당첨 번호(WinningNumbers)
    - 당첨 6개 숫자 + 보너스 번호 보유
-   - 티켓과의 비교용 유틸리티 제공
+   - 숫자들 검증 진행
 
 9. [x] 등수 정의(Enum: Rank)
    - 1~5등 기준과 상금(금액)을 정의

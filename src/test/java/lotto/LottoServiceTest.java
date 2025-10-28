@@ -89,4 +89,58 @@ public class LottoServiceTest {
         assertThatThrownBy(() -> service.purchaseLotto(0))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("getRankResults는 각 등수 개수와 총 당첨금, 수익률을 계산하여 반환한다")
+    void getRankResults_CalculatesCountsAndPrizeAndYield() {
+        // given
+        LottoRepository repo = new LottoRepository();
+
+        List<Lotto> tickets = new ArrayList<>();
+        // FIRST
+        tickets.add(new Lotto(List.of(1,2,3,4,5,6)));
+        // SECOND (5 + bonus)
+        tickets.add(new Lotto(List.of(1,2,3,4,5,7)));
+        // THIRD (5 only)
+        tickets.add(new Lotto(List.of(1,2,3,4,5,8)));
+        // FOURTH (4)
+        tickets.add(new Lotto(List.of(1,2,3,4,9,10)));
+        // FIFTH (3)
+        tickets.add(new Lotto(List.of(1,2,3,11,12,13)));
+        // MISS (0)
+        tickets.add(new Lotto(List.of(10,11,12,13,14,15)));
+
+        // save all tickets with total money 6000
+        repo.saveLottos(tickets, 6000);
+
+        LottoService service = new LottoService(repo, () -> List.of(1,2,3,4,5,6)); // generator unused here
+
+        WinningNumbers winning = new WinningNumbers(List.of(1,2,3,4,5,6), 7);
+
+        // when
+        RankResults results = service.getRankResults(winning);
+
+        // then
+        // 각 등수 1개씩
+        assertThat(results.rankCounts().get(Rank.FIRST)).isEqualTo(1);
+        assertThat(results.rankCounts().get(Rank.SECOND)).isEqualTo(1);
+        assertThat(results.rankCounts().get(Rank.THIRD)).isEqualTo(1);
+        assertThat(results.rankCounts().get(Rank.FOURTH)).isEqualTo(1);
+        assertThat(results.rankCounts().get(Rank.FIFTH)).isEqualTo(1);
+        assertThat(results.rankCounts().get(Rank.MISS)).isEqualTo(1);
+
+        // 총 당첨금: FIRST + SECOND + THIRD + FOURTH + FIFTH + MISS
+        long expectedTotalPrize = Rank.FIRST.getPrize()
+                + Rank.SECOND.getPrize()
+                + Rank.THIRD.getPrize()
+                + Rank.FOURTH.getPrize()
+                + Rank.FIFTH.getPrize()
+                + Rank.MISS.getPrize();
+
+        assertThat(results.totalPrize()).isEqualTo(expectedTotalPrize);
+
+        // 수익률 = totalPrize / totalSpent * 100
+        double expectedYield = (double) expectedTotalPrize / 6000 * 100.0;
+        assertThat(results.getYieldPercent()).isEqualTo(expectedYield);
+    }
 }

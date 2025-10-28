@@ -1,6 +1,8 @@
 package lotto;
 
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -17,4 +19,21 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+
+    public Rank checkRank(WinningNumbers winningNumbers) {
+
+        Set<Integer> winningSet = new HashSet<>(winningNumbers.getWinningNumbers());
+        int bonusNumber = winningNumbers.getBonusNumber();
+
+        int matchCount = 0;
+        for (int number : numbers) {
+            if (winningSet.contains(number)) {
+                matchCount++;
+            }
+        }
+
+        boolean bonusMatch = numbers.contains(bonusNumber);
+
+        return Rank.from(matchCount, bonusMatch);
+    }
 }

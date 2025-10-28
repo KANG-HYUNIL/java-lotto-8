@@ -6,12 +6,12 @@ public class LottoFactory {
 
     public static Lotto createLotto(LottoNumberGenerator generator) {
 
-        List<Integer> lottoNumbers = generator.generateLottoNumbers();
+        List<Integer> nums = generator.generateLottoNumbers();
 
-        Validator.validateLottoNumberRange(lottoNumbers);
-        Validator.validateWinningNumbersDuplicate(lottoNumbers); 
+        Validator.validateLottoNumberRange(nums);
+        Validator.validateWinningNumbersDuplicate(nums);
 
-        return new Lotto(lottoNumbers);
+        return new Lotto(nums);
     }
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LottoRepository {
 
-    private final List<Lotto> LottoList = new ArrayList<Lotto>();
+    private final List<Lotto> lottoList = new ArrayList<Lotto>();
     private int totalMoney = 0;
 
     public int getTotalMoney() {
@@ -13,16 +13,21 @@ public class LottoRepository {
     }
 
     public int getLottoCount() {
-        return LottoList.size();
+        return lottoList.size();
     }
 
     public void saveLottos(List<Lotto> newLottos, int money) {
-        LottoList.addAll(newLottos);
-        totalMoney += money;
+
+        if (newLottos == null || newLottos.isEmpty()) {
+            return;
+        }
+
+        lottoList.addAll(newLottos);
+        totalMoney = money;
     }
 
     public List<Lotto> getLottos() {
-        return List.copyOf(LottoList);
+        return List.copyOf(lottoList);
     }
 
 }
